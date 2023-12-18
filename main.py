@@ -1,9 +1,21 @@
 #-----------------------------------------------------------------------Functional Paradigm -----------------------------------------------------------------------------------
 
-#Purpose: flattens and sorts an array of integers in ascending order
-#input:
+#Purpose: flattens and sorts a list of integers in ascending order
 def flatten_sort(input_list):
-    pass
+    flat_list = []
+    for element in input_list:
+        if isinstance(element, list):
+            flat_list.extend(flatten_sort(element))
+        else:
+            flat_list.append(element)
+    #now finally sort the function and return it 
+    return sorted(flat_list)
+#Tests
+if __name__ ==  "__main__":
+    list_to_sort = [[3, 5,100],1, [7, 3, [2,3], 9], [1, 12]]
+    print(flatten_sort(list_to_sort))
+
+            
 
 #Questions
 
